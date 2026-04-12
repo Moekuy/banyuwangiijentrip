@@ -14,6 +14,13 @@
     <img src="Gambar/logo/banyuwangiijentrip.webp" alt="Banyuwangiijentrip Logo">
     <h1>Paket Wisata & Kursus Kendaraan</h1>
   </div>
+  <button class="menu-toggle" aria-label="Toggle navigation menu">
+    <svg class="ct-icon" width="18" height="14" viewBox="0 0 18 14" data-type="type-1" aria-hidden="true">
+      <rect y="0.00" width="18" height="1.7" rx="1"></rect>
+      <rect y="6.15" width="18" height="1.7" rx="1"></rect>
+      <rect y="12.3" width="18" height="1.7" rx="1"></rect>
+    </svg>
+  </button>
   <nav>
     <a href="index.html">Beranda</a>
     <a href="destinasi.html" class="active">Wisata</a>
@@ -273,6 +280,25 @@
 <footer>
   <p>© 2026 Wisata Banyuwangi</p>
 </footer>
+<script>
+(function() {
+  const toggle = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('header nav');
+  if (!toggle || !nav) return;
 
+  toggle.addEventListener('click', function(event) {
+    event.stopPropagation();
+    nav.classList.toggle('open');
+    toggle.classList.toggle('open');
+  });
+
+  document.addEventListener('click', function(event) {
+    if (!event.target.closest('header')) {
+      nav.classList.remove('open');
+      toggle.classList.remove('open');
+    }
+  });
+})();
+</script>
 </body>
 </html>
